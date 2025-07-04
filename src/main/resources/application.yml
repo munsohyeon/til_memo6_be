@@ -1,1 +1,10 @@
-spring.application.name=memoServer6
+spring:
+  datasource:
+    url: jdbc:mariadb://localhost/memo
+    username: root
+    password: green502
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: mappers/**/*.xml

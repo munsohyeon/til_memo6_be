@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.memoserver6.MemoMapper">
+    <insert id="postMemo">
+        INSERT INTO memo
+         SET title = #{title}
+           , content = #{content}
+    </insert>
+    <select id="getListMemo">
+        SELECT id,title,createdAt
+         FROM memo
+        <if test="searchText != null and searchText != '' ">
+            WHERE title LIKE '%${searchText}%'
+            OR content LIKE '%${searchText}%'
+        </if>
+        ORDER BY id DESC
+    </select>
+    <select id="getMemo">
+        SELECT title, content, createdAt
+         FROM memo
+        WHERE id = #{id}
+    </select>
+    <update id="putMemo">
+
+    </update>
+    <delete id="deleteMemo">
+
+    </delete>
+</mapper>
