@@ -7,7 +7,7 @@
            , content = #{content}
     </insert>
     <select id="getListMemo">
-        SELECT id,title,createdAt
+        SELECT id, title, created_at
          FROM memo
         <if test="searchText != null and searchText != '' ">
             WHERE title LIKE '%${searchText}%'
@@ -16,14 +16,19 @@
         ORDER BY id DESC
     </select>
     <select id="getMemo">
-        SELECT title, content, createdAt
+        SELECT id, title, content, created_at
          FROM memo
         WHERE id = #{id}
     </select>
     <update id="putMemo">
-
+        UPDATE memo
+        SET title = #{title}
+          , content = #{content}
+        WHERE id = #{id}
     </update>
     <delete id="deleteMemo">
-
+        DELETE
+        FROM memo
+        WHERE id = #{id}
     </delete>
 </mapper>

@@ -1,4 +1,4 @@
-package com.green.memoserver6.model;
+package com.green.config.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
